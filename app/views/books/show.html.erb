@@ -1,4 +1,12 @@
 <h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<div>
+  <%= link_to(user_path(@book.user.id)) do %>
+    <%= image_tag @book.user.get_profile_image(100,100) %>
+    <p><%= @book.user.name %></p>
+  <% end %>
+</div>
+
 <p>Title: <%= @book.title %></p>
 <p>Opinion: <%= @book.body %></p>
+<%= link_to 'edit', edit_book_path(@book.id) %>
+<%= link_to 'delete', book_path(@book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>

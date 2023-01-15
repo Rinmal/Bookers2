@@ -5,4 +5,5 @@
   <h4>Name: <%= user.name %></h4>
   <h4>Introduction: <%= user.introduction %></h4>
 </div>
-<p><%= link_to "edit", edit_user_path(user.id) %></p>
+
+<%= link_to "edit", edit_user_path(@user) %>

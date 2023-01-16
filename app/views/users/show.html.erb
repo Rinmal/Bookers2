@@ -1,6 +1,9 @@
 <%= flash[:notice] %>
 <h1>Users#show</h1>
-<%= render 'user', user:@user %>
+
+<%= render 'user', user: @user %>
+<%= render 'books/book', nbook: @nbook %>
+
 <!--Userの投稿一覧-->
 <% @books.each do |book| %>
   <div>

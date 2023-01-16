@@ -1,4 +1,7 @@
 <h1>Books#index</h1>
+<%= render 'users/user', user: @user %>
+<%= render 'book', nbook: @nbook %>
+
 <% @books.each do |book| %>
   <div>
     <%= link_to(user_path(book.user.id)) do %>
@@ -12,5 +15,3 @@
     <p>Opinion: <%= book.body %></p>
   </div>
 <% end %>
-
-<%= render 'book', nbook: @nbook %>

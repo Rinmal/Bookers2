@@ -1,5 +1,14 @@
 <!--New Bookを部分テンプレートにしてここに書く-->
 <h3>New Book</h3>
+<% if nbook.errors.any? %>
+  <%= nbook.errors.count %>件のエラー
+  <ul>
+    <% nbook.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%=form_with model: nbook do |f| %>
   <p>Title</p>
   <%= f.text_field :title %>

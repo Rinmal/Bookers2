@@ -7,10 +7,6 @@ class BooksController < ApplicationController
     @user = User.find(current_user.id)
   end
 
-  def new
-
-  end
-
   def create
     @books = Book.all
     @nbook = Book.new(book_params)

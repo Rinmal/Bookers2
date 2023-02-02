@@ -1,0 +1,16 @@
+<div class="container px-5">
+  <h2>Search Result</h2>
+  <% if @object == "User" %>
+    <% if @users.count > 0 %>
+      <%= render 'users/users', users: @users %>
+    <% else %>
+      <%= "User not found" %>
+    <% end %>
+  <% else %>
+    <% if @books.count > 0 %>
+    <%= render 'books/book2', books: @books %>
+    <% else %>
+    <%= "Book not found" %>
+    <% end %>
+  <% end %>
+</div>

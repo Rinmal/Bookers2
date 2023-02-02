@@ -32,4 +32,16 @@ class User < ApplicationRecord
     reverse_of_relationships.find_by(following_id: user.id).present?
   end
 
+  def self.looks(method, word)
+    if method == 'perfect_match'
+      @user = self.where("name LIKE?","#{word}")
+    elsif method == 'forward_match'
+      @user = self.where("name LIKE?","#{word}%")
+    elsif method == 'behind_match'
+      @user = self.where("name LIKE?","%#{word}")
+    elsif method == 'part_match'
+      @user = self.where("name LIKE?","%#{word}%")
+    end
+  end
+
 end

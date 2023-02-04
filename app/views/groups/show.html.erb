@@ -16,6 +16,10 @@
             <td>
               <% if current_user.id == @group.owner_id %>
                 <%= link_to "Edit", edit_group_path(@group.id), class: 'btn btn-success' %>
+              <% elsif @group.users.include?(current_user) %>
+                <%= link_to "Leave this group", group_path(@group), method: :delete, class:'btn btn-sm btn-warning' %>
+              <% else%>
+                <%= link_to "Join this group", group_join_path(@group), class:'btn btn-sm btn-info' %>
               <% end %>
             </td>
           </tr>

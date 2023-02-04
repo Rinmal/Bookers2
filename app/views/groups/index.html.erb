@@ -13,7 +13,7 @@
             <th></th>
             <th>グループ名</th>
             <th>紹介文</th>
-            <th></th>
+            <th colspan="2"></th>
           </tr>
         </thead>
         <tbody>
@@ -26,9 +26,12 @@
                 <% end %>
               </td>
               <td><%= group.introduction %></td>
+              <td><i class="fas fa-user"></i><%= group.users.count %></td>
               <td>
                 <% if current_user.id == group.owner_id %>
-                  <%= link_to "Edit", edit_group_path(group.id), class: 'btn btn-success' %>
+                  <%= link_to(edit_group_path(group.id)) do %>
+                    <button class="btn"><i class="fas fa-cog"></i></button>
+                  <% end %>
                 <% end %>
               </td>
             </tr>

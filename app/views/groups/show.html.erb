@@ -15,7 +15,12 @@
             <td><%= @group.introduction %></td>
             <td>
               <% if current_user.id == @group.owner_id %>
-                <%= link_to "Edit", edit_group_path(@group.id), class: 'btn btn-success' %>
+                <%= link_to(edit_group_path(@group.id)) do %>
+                  <button class="btn"><i class="fas fa-cog"></i>Edit</button>
+                <% end %>
+                <%= link_to(group_new_mail_path(@group)) do %>
+                  <button class="btn"><i class="far fa-envelope"></i>Notice an Event</button>
+                <% end %>
               <% elsif @group.users.include?(current_user) %>
                 <%= link_to "Leave this group", group_path(@group), method: :delete, class:'btn btn-sm btn-warning' %>
               <% else%>

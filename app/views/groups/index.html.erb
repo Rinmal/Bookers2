@@ -30,7 +30,7 @@
               <td>
                 <% if current_user.id == group.owner_id %>
                   <%= link_to(edit_group_path(group.id)) do %>
-                    <button class="btn"><i class="fas fa-cog"></i></button>
+                    <button class="btn"><i class="fas fa-cog"></i>Edit</button>
                   <% end %>
                 <% end %>
               </td>
